@@ -12,7 +12,7 @@ import configs
 
 log_in = str(input("token /> "))
 conf = configs.Configs(log_in)
-bot = commands.Bot(command_prefix="faq>", case_insensitive=True, intents=disnake.Intents.all())
+bot = commands.Bot(command_prefix="bgs>", case_insensitive=True, intents=disnake.Intents.all())
 
 @bot.event
 async def on_ready():
