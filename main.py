@@ -26,23 +26,23 @@ async def set(ctx):
     white = bot.get_emoji(1086292088863342653)
     welcome = bot.get_channel(conf.get_welcome_channel())
     embed=Embed(
-        title=f"{white} Welcome to ReMolla Support Server!",
+        title=f"{white} Welcome to BelGray's! This is the support server for all our products!",
         description="Choose your language, please :)",
         color=conf.default_color
     )
     components = disnake.ui.View()
-    components.add_item(Button(style=disnake.ButtonStyle.blurple, label="English", custom_id="set_eng", emoji="🇬🇧"))
-    components.add_item(Button(style=disnake.ButtonStyle.blurple, label="Russian", custom_id="set_ru", emoji="🇷🇺"))
+    components.add_item(Button(style=disnake.ButtonStyle.secondary, label="English", custom_id="set_eng", emoji="🇬🇧"))
+    components.add_item(Button(style=disnake.ButtonStyle.secondary, label="Russian", custom_id="set_ru", emoji="🇷🇺"))
     await welcome.send(embed=embed, view=components)
 
     """SECOND STAGE"""
     rule = bot.get_channel(conf.get_rules_channel())
     protect = bot.get_emoji(1084301542120759366)
     embed=Embed(
-        title=f"{protect} OUR RULES (follow it!)",
+        title=f"{protect} OUR RULES (follow them!)",
         color=conf.default_color
     )
-    embed.set_image("https://media.discordapp.net/attachments/1078429568572080243/1083864902176870485/81_20230310230245.png?width=1440&height=545")
+    embed.set_image("https://media.discordapp.net/attachments/1078429568572080243/1097217735433404466/BelGrays_banner.jpg?width=1056&height=378")
     embed.add_field(name="1) No spamming", value="`mute/ban`")
     embed.add_field(name="2) No advertisements", value="`ban`")
     embed.add_field(name="3) No flooding", value="`mute/ban`")
