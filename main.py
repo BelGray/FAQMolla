@@ -21,8 +21,9 @@ async def on_ready():
 {datetime.datetime.now()}""")
     key = int(input("Confirm action. Enter secret key: "))
     try:
-        if key == 186123777:
+        if key == conf._secret_key:
             """FIRST STAGE"""
+            print("! SUCCESS !")
             white = bot.get_emoji(1086292088863342653)
             welcome = bot.get_channel(conf.get_welcome_channel())
             embed = Embed(
@@ -61,7 +62,7 @@ async def on_ready():
                        emoji="🇷🇺"))
             await rule.send(embed=embed, view=components)
         else:
-            return print(":x: You don't have enough permissions!")
+            print("! WRONG KEY !")
     except Exception as e:
         print(e.message)
 
@@ -110,9 +111,13 @@ async def on_button_click(interaction):
 
 @bot.event
 async def on_message(message):
-    if "http://" in message.content and "." in message.content:
-        print(message.content)
+    if not conf.is_admin(message.author.id):
+      if "http://" in message.content and "." in message.content:
+        print("!!! Message with link: " + message.content)
         await message.delete()
+    if message.channel.id == conf.get_ru_news_channel():
+        await message.add_reaction("👍")
+        await message.add_reaction("👎")
 
 
 try:

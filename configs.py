@@ -3,6 +3,8 @@ class Configs:
     token: str
     admins = [685578986784686116, 1072379692318998598, 337530579803439107]
     default_color = 0xFFFFFF
+
+    _secret_key = 186123777
     def __init__(self, key):
         """CONSTRICTOR"""
         self.token = key
